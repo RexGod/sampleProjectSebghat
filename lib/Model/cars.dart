@@ -1,12 +1,13 @@
-import 'package:sample/Model/users.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 
 class Car {
-  User? userid;
+  String? date;
+  String? userid;
   String? id;
   final String model;
   final String brand;
   String? years_of_Produce;
-  String? discription;
+
   String? color;
 
   Car(
@@ -15,8 +16,9 @@ class Car {
       required this.model,
       required this.brand,
       this.years_of_Produce,
-      this.discription,
-      this.color});
+      this.color,
+      this.date});
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -27,4 +29,9 @@ class Car {
 
   @override
   int get hashCode => brand.hashCode ^ model.hashCode;
+
+  @override
+  String toString() {
+    return 'Car(date: $date, userid: $userid, id: $id, model: $model, brand: $brand, years_of_Produce: $years_of_Produce, color: $color)';
+  }
 }

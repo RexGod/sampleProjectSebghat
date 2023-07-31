@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
+import 'package:sample/View/myInquiry.dart';
 import 'package:sample/View/widgets/Drawer.dart';
 import 'package:sample/ViewModel/carsProvider.dart';
 import 'package:sample/ViewModel/toolsProvider.dart';
-
 import '../Model/cars.dart';
 
 class Inquiry extends StatefulWidget {
@@ -82,7 +83,8 @@ class _InquiryState extends State<Inquiry> {
         return;
       } else {
         _formKey.currentState!.save();
-
+        String date =
+            Provider.of<ProviderCar>(context, listen: false).getCurrentDate();
         Provider.of<ProviderCar>(context, listen: false).addCar(
             id,
             _idCarController.text,
@@ -90,7 +92,7 @@ class _InquiryState extends State<Inquiry> {
             _yearProductController.text,
             selectedBrand.toString(),
             selectedColor.toString(),
-            discript);
+            date.toString());
       }
       ;
     }
@@ -102,6 +104,7 @@ class _InquiryState extends State<Inquiry> {
         _formKey.currentState!.save();
 
         Provider.of<Providertool>(context, listen: false).addTool(
+            id,
             selectedToolsType.toString(),
             _nameOftoolFieldController.text,
             _brandController.text,
@@ -113,7 +116,7 @@ class _InquiryState extends State<Inquiry> {
 
     List<Step> getSteps() => [
           Step(
-            title: Text('مرحله اول'),
+            title: const Text('مرحله اول'),
             isActive: activeStep >= 0,
             content: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -175,7 +178,11 @@ class _InquiryState extends State<Inquiry> {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.of(context).pushNamed(
+                                      MyInquiry.routeName,
+                                      arguments: id);
+                                },
                                 child: const Text('مشاهده استعلام های قبلی ',
                                     style: TextStyle(
                                         fontSize: 20.0,
@@ -192,15 +199,18 @@ class _InquiryState extends State<Inquiry> {
             ),
           ),
           Step(
-            title: Text('مرحله دوم'),
+            label: Text('ثبت خودرو'),
+            title: const Text(
+              'مرحله دوم',
+            ),
             isActive: activeStep >= 1,
             content: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text('مشخصات خودرو'),
-                  SizedBox(height: 20),
+                  const Text('مشخصات خودرو'),
+                  const SizedBox(height: 20),
                   DropdownButton<String>(
                     value: selectedBrand,
                     onChanged: (value) => setState(() {
@@ -209,7 +219,7 @@ class _InquiryState extends State<Inquiry> {
                     }),
                     items: carBrands.map(buildMenuItem).toList(),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   DropdownButton<String>(
                     value: selectedCar,
                     onChanged: (value) => setState(() {
@@ -219,7 +229,7 @@ class _InquiryState extends State<Inquiry> {
                         .map(buildMenuItem)
                         .toList(),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   DropdownButton<String>(
                     value: selectedColor,
                     onChanged: (value) => setState(() {
@@ -232,8 +242,8 @@ class _InquiryState extends State<Inquiry> {
                             ))
                         .toList(),
                   ),
-                  SizedBox(height: 20),
-                  Text('سال ساخت'),
+                  const SizedBox(height: 20),
+                  const Text('سال ساخت'),
                   Form(
                       key: _formKey,
                       child: Column(
@@ -243,50 +253,50 @@ class _InquiryState extends State<Inquiry> {
                               _idCarController.text;
                             },
                             controller: _idCarController,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               hintText: 'سال ساخت',
                             ),
                           ),
-                          SizedBox(height: 20),
-                          Text('شماره شاسی'),
+                          const SizedBox(height: 20),
+                          const Text('شماره شاسی'),
                           TextFormField(
                             onSaved: (newValue) {
                               _yearProductController.text;
                             },
                             controller: _yearProductController,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               hintText: 'شماره شاسی',
                             ),
                           ),
                         ],
                       )),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: _submit,
-                    child: Text('ثبت خودرو'),
+                    child: const Text('ثبت خودرو'),
                   ),
                 ],
               ),
             ),
           ),
           Step(
-            title: Text('مرحله سوم'),
+            title: const Text('مرحله سوم'),
             isActive: activeStep >= 2,
-            label: Text('ثبت قطعه'),
+            label: const Text('ثبت قطعه'),
             content: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   DropdownButton<String>(
-                    hint: Text('-نوع قطعه را وارد کنید-'),
+                    hint: const Text('-نوع قطعه را وارد کنید-'),
                     value: selectedToolsType,
                     onChanged: (value) => setState(() {
                       selectedToolsType = value;
                     }),
                     items: toolType.map(buildMenuItem).toList(),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Form(
                       key: _formKeytool,
                       child: Column(
@@ -296,27 +306,28 @@ class _InquiryState extends State<Inquiry> {
                               _nameOftoolFieldController.text;
                             },
                             controller: _nameOftoolFieldController,
-                            decoration: InputDecoration(hintText: 'نام قطعه'),
+                            decoration:
+                                const InputDecoration(hintText: 'نام قطعه'),
                           ),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           TextFormField(
                             onSaved: (newValue) {
                               _brandController.text;
                             },
                             controller: _brandController,
-                            decoration: InputDecoration(hintText: 'برند'),
+                            decoration: const InputDecoration(hintText: 'برند'),
                           ),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           TextFormField(
                             onSaved: (newValue) {
                               _numberOftoolController.text;
                             },
                             controller: _numberOftoolController,
-                            decoration: InputDecoration(),
+                            decoration: const InputDecoration(),
                           ),
                         ],
                       )),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   DropdownButton<String>(
                     value: selectedSatate,
                     onChanged: (value) => setState(() {
@@ -324,17 +335,76 @@ class _InquiryState extends State<Inquiry> {
                     }),
                     items: toolState.map(buildMenuItem).toList(),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: _submitfortool,
-                    child: Text('ثبت قطعه'),
+                    child: const Text('ثبت قطعه'),
                   ),
                 ],
               ),
             ),
           ),
           Step(
-              title: Text('4'), isActive: activeStep >= 3, content: Container())
+            title: const Text('پایان'),
+            isActive: activeStep >= 3,
+            content: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 80),
+                Center(
+                  child: Material(
+                    elevation: 4,
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.32,
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      child: Column(children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * 1,
+                          color: Colors.grey,
+                          child: const Center(
+                              child: Padding(
+                            padding: EdgeInsets.all(20.0),
+                            child: Text(
+                              textAlign: TextAlign.center,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              'در خواست استعلام شما با موفقیت ثبت شد',
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.bold),
+                            ),
+                          )),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.all(20.0),
+                          child: Text(
+                            textAlign: TextAlign.justify,
+                            maxLines: 5,
+                            overflow: TextOverflow.ellipsis,
+                            'نتیجه درخواست استعلام شما توسط تامین‌کنندگان پاسخ داده خواهد شد و در پروفایل شما قابل مشاهده خواهد بود',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).pushNamed(
+                                  MyInquiry.routeName,
+                                  arguments: id);
+                            },
+                            child: const Text('پاسخ استعلام')),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                      ]),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ];
     return Scaffold(
       appBar: AppBar(
@@ -356,7 +426,7 @@ class _InquiryState extends State<Inquiry> {
       ),
       body: Theme(
         data: Theme.of(context).copyWith(
-            colorScheme: ColorScheme.light(
+            colorScheme: const ColorScheme.light(
           primary: Color(0xFFF57C00),
         )),
         child: Column(children: [
@@ -365,38 +435,46 @@ class _InquiryState extends State<Inquiry> {
             child: Flexible(
               child: Stepper(
                 controlsBuilder: (context, details) {
+                  bool isFirstStep = details.currentStep == 0;
+                  bool islastStep = details.currentStep == 3;
                   return Container(
                     margin: EdgeInsets.only(
                         top: MediaQuery.of(context).size.height * 0.05),
                     child: Row(
                       children: [
-                        Expanded(
+                        if (!isFirstStep)
+                          Expanded(
                             child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 15, horizontal: 15),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5),
+                              style: ElevatedButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 15, horizontal: 15),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                              ),
+                              child: islastStep
+                                  ? const Text('بازگشت')
+                                  : const Text('مرحله قبل'),
+                              onPressed: details.onStepCancel,
                             ),
                           ),
-                          child: Text('مرحله بعد'),
-                          onPressed: details.onStepContinue,
-                        )),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Expanded(
+                        const SizedBox(width: 15),
+                        if (!islastStep)
+                          Expanded(
                             child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 15, horizontal: 15),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5),
+                              style: ElevatedButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 15, horizontal: 15),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                              ),
+                              child: isFirstStep
+                                  ? const Text('ادامه')
+                                  : const Text('مرحله بعد'),
+                              onPressed: details.onStepContinue,
                             ),
                           ),
-                          child: Text('مرحله قبل'),
-                          onPressed: details.onStepCancel,
-                        ))
                       ],
                     ),
                   );

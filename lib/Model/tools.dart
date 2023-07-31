@@ -1,4 +1,5 @@
 class Tools {
+  final String userId;
   final String type;
   final String name;
   final String brand;
@@ -6,7 +7,8 @@ class Tools {
   final String state;
 
   Tools(
-      {required this.type,
+      {required this.userId,
+      required this.type,
       required this.name,
       required this.brand,
       required this.number,
