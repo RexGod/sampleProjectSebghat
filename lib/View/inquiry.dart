@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sample/View/widgets/Drawer.dart';
 import 'package:sample/ViewModel/carsProvider.dart';
+import 'package:sample/ViewModel/toolsProvider.dart';
 
 import '../Model/cars.dart';
 
@@ -41,6 +42,7 @@ class _InquiryState extends State<Inquiry> {
     'نقره ای',
   ];
   final GlobalKey<FormState> _formKey = GlobalKey();
+  final GlobalKey<FormState> _formKeytool = GlobalKey();
   String? selectedColor;
   String? selectedBrand;
   String? selectedCar;
@@ -89,6 +91,22 @@ class _InquiryState extends State<Inquiry> {
             selectedBrand.toString(),
             selectedColor.toString(),
             discript);
+      }
+      ;
+    }
+
+    void _submitfortool() {
+      if (!_formKey.currentState!.validate()) {
+        return;
+      } else {
+        _formKey.currentState!.save();
+
+        Provider.of<Providertool>(context, listen: false).addTool(
+            selectedToolsType.toString(),
+            _nameOftoolFieldController.text,
+            _brandController.text,
+            _numberOftoolController.text,
+            selectedSatate.toString());
       }
       ;
     }
@@ -269,29 +287,35 @@ class _InquiryState extends State<Inquiry> {
                     items: toolType.map(buildMenuItem).toList(),
                   ),
                   SizedBox(height: 16),
-                  TextFormField(
-                    onSaved: (newValue) {
-                      _nameOftoolFieldController.text;
-                    },
-                    controller: _nameOftoolFieldController,
-                    decoration: InputDecoration(hintText: 'نام قطعه'),
-                  ),
-                  SizedBox(height: 16),
-                  TextFormField(
-                    onSaved: (newValue) {
-                      _brandController.text;
-                    },
-                    controller: _brandController,
-                    decoration: InputDecoration(hintText: 'برند'),
-                  ),
-                  SizedBox(height: 16),
-                  TextFormField(
-                    onSaved: (newValue) {
-                      _numberOftoolController.text;
-                    },
-                    controller: _numberOftoolController,
-                    decoration: InputDecoration(),
-                  ),
+                  Form(
+                      key: _formKeytool,
+                      child: Column(
+                        children: [
+                          TextFormField(
+                            onSaved: (newValue) {
+                              _nameOftoolFieldController.text;
+                            },
+                            controller: _nameOftoolFieldController,
+                            decoration: InputDecoration(hintText: 'نام قطعه'),
+                          ),
+                          SizedBox(height: 16),
+                          TextFormField(
+                            onSaved: (newValue) {
+                              _brandController.text;
+                            },
+                            controller: _brandController,
+                            decoration: InputDecoration(hintText: 'برند'),
+                          ),
+                          SizedBox(height: 16),
+                          TextFormField(
+                            onSaved: (newValue) {
+                              _numberOftoolController.text;
+                            },
+                            controller: _numberOftoolController,
+                            decoration: InputDecoration(),
+                          ),
+                        ],
+                      )),
                   SizedBox(height: 16),
                   DropdownButton<String>(
                     value: selectedSatate,
@@ -302,7 +326,7 @@ class _InquiryState extends State<Inquiry> {
                   ),
                   SizedBox(height: 20),
                   ElevatedButton(
-                    onPressed: _submit,
+                    onPressed: _submitfortool,
                     child: Text('ثبت قطعه'),
                   ),
                 ],

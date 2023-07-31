@@ -5,6 +5,7 @@ import 'package:sample/View/login.dart';
 import 'package:sample/View/signUp.dart';
 import 'package:provider/provider.dart';
 import 'package:sample/ViewModel/carsProvider.dart';
+import 'package:sample/ViewModel/toolsProvider.dart';
 import 'package:sample/ViewModel/userProvider.dart';
 
 import 'View/verification.dart';
@@ -19,11 +20,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider.value(value: Providertool()),
         ChangeNotifierProvider.value(
           value: ProviderCar(),
         ),
         ChangeNotifierProvider.value(value: ProviderUser()),
-        ChangeNotifierProvider.value(value: Setting())
+        ChangeNotifierProvider.value(
+          value: Setting(),
+        )
       ],
       child: MaterialApp(home: SignUpScreen(), routes: {
         'login': (context) => loginuser(),
