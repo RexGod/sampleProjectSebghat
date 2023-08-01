@@ -46,130 +46,139 @@ class _SignUpScreenState extends State<SignUpScreen> {
       child: Scaffold(
         backgroundColor: Colors.grey[200],
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.05,
-              ),
-              Text(
-                ' ساخت حساب کاربری',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.05,
-              ),
-              Center(
-                child: SingleChildScrollView(
-                  child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.59,
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Card(
-                        elevation: 4,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Form(
-                          key: _formKey,
-                          child: Padding(
-                            padding: const EdgeInsets.all(20),
-                            child: Directionality(
-                              textDirection: TextDirection.rtl,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  TextFormField(
-                                    onSaved: (newValue) {
-                                      _nameController.text;
-                                    },
-                                    validator: validation.validphoneNumber,
-                                    controller: _phoneController,
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      hintText: 'شماره موبایل',
-                                      prefixIcon: const Icon(Icons.phone),
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
+          child: Center(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.05,
+                ),
+                Text(
+                  ' ساخت حساب کاربری',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.05,
+                ),
+                Center(
+                  child: SingleChildScrollView(
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.65,
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: Card(
+                          elevation: 4,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Form(
+                            key: _formKey,
+                            child: Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    TextFormField(
+                                      onSaved: (newValue) {
+                                        _nameController.text;
+                                      },
+                                      validator: validation.validphoneNumber,
+                                      controller: _phoneController,
+                                      keyboardType: TextInputType.number,
+                                      decoration: InputDecoration(
+                                        hintText: 'شماره موبایل',
+                                        prefixIcon: const Icon(Icons.phone),
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  const SizedBox(height: 20),
-                                  TextField(
-                                    controller: _nameController,
-                                    keyboardType: TextInputType.emailAddress,
-                                    decoration: InputDecoration(
-                                      hintText: 'نام خود را وارد کنید',
-                                      prefixIcon: const Icon(Icons.email),
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
+                                    const SizedBox(height: 20),
+                                    TextField(
+                                      controller: _nameController,
+                                      keyboardType: TextInputType.emailAddress,
+                                      decoration: InputDecoration(
+                                        hintText: 'نام خود را وارد کنید',
+                                        prefixIcon: const Icon(Icons.email),
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  const SizedBox(height: 20),
-                                  TextFormField(
-                                    onSaved: (newValue) {
-                                      _emailController.text;
-                                    },
-                                    validator: validation.validateEmail,
-                                    controller: _emailController,
-                                    keyboardType: TextInputType.emailAddress,
-                                    decoration: InputDecoration(
-                                      hintText: 'ایمیل خود را وارد کنید',
-                                      prefixIcon: const Icon(Icons.email),
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
+                                    const SizedBox(height: 20),
+                                    TextFormField(
+                                      onSaved: (newValue) {
+                                        _emailController.text;
+                                      },
+                                      validator: validation.validateEmail,
+                                      controller: _emailController,
+                                      keyboardType: TextInputType.emailAddress,
+                                      decoration: InputDecoration(
+                                        hintText: 'ایمیل خود را وارد کنید',
+                                        prefixIcon: const Icon(Icons.email),
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  const SizedBox(height: 20),
-                                  TextFormField(
-                                    onSaved: (newValue) {
-                                      _passwordController.text;
-                                    },
-                                    validator: validation.validatePassword,
-                                    controller: _passwordController,
-                                    obscureText: true, // star replaced
-                                    decoration: InputDecoration(
-                                      hintText: 'رمز عبور خود را وارد کنید',
-                                      prefixIcon: const Icon(Icons.lock),
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
+                                    const SizedBox(height: 20),
+                                    TextFormField(
+                                      onSaved: (newValue) {
+                                        _passwordController.text;
+                                      },
+                                      validator: validation.validatePassword,
+                                      controller: _passwordController,
+                                      obscureText: true, // star replaced
+                                      decoration: InputDecoration(
+                                        hintText: 'رمز عبور خود را وارد کنید',
+                                        prefixIcon: const Icon(Icons.lock),
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  const SizedBox(height: 30),
-                                  ElevatedButton(
-                                    onPressed: _submit,
-                                    style: ElevatedButton.styleFrom(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 16),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10),
+                                    const SizedBox(height: 30),
+                                    ElevatedButton(
+                                      onPressed: _submit,
+                                      style: ElevatedButton.styleFrom(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 16),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        backgroundColor: Color(0xFFF57C00),
                                       ),
-                                      backgroundColor: Color(0xFFF57C00),
+                                      child: const Text(
+                                        'ثبت نام حساب',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16),
+                                      ),
                                     ),
-                                    child: const Text(
-                                      'ثبت نام حساب',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16),
-                                    ),
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      const Text(
-                                          'در حال حاضر یک حساب کاربری دارید؟ '),
-                                      TextButton(
-                                          onPressed: () {
-                                            Navigator.of(context)
-                                                .pushReplacementNamed(
-                                                    loginuser.routeName);
-                                          },
-                                          child: Text('ورود'))
-                                    ],
-                                  )
-                                ],
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        const Text(
+                                            'در حال حاضر یک حساب کاربری دارید؟ '),
+                                        TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context)
+                                                  .pushReplacementNamed(
+                                                      loginuser.routeName);
+                                            },
+                                            child: Text('ورود'))
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -178,8 +187,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

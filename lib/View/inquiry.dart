@@ -118,77 +118,79 @@ class _InquiryState extends State<Inquiry> {
           Step(
             title: const Text('مرحله اول'),
             isActive: activeStep >= 0,
-            content: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Center(
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.4,
-                  child: Card(
-                    elevation: 4,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Center(
-                        child: Directionality(
-                          textDirection: TextDirection.rtl,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.all(16.0),
-                                child: Text(
-                                  'استعلام قیمت',
-                                  style: TextStyle(
-                                      fontSize: 28.0,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              const SizedBox(height: 8.0),
-                              ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 25, horizontal: 80),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
+            content: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Center(
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.4,
+                    child: Card(
+                      elevation: 4,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Center(
+                          child: Directionality(
+                            textDirection: TextDirection.rtl,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'استعلام قیمت',
+                                    style: TextStyle(
+                                        fontSize: 23.0,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ),
-                                onPressed: () {
-                                  setState(() {
-                                    activeStep += 1;
-                                  });
-                                },
-                                child: const Text(' درخواست استعلام جدید',
-                                    style: TextStyle(
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.w600)),
-                              ),
-                              const SizedBox(height: 16.0),
-                              const Text('یا',
-                                  style: TextStyle(
-                                      fontSize: 25.0,
-                                      fontWeight: FontWeight.bold)),
-                              const SizedBox(height: 16.0),
-                              ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 25, horizontal: 80),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
+                                const SizedBox(height: 8.0),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 10, horizontal: 40),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
                                   ),
+                                  onPressed: () {
+                                    setState(() {
+                                      activeStep += 1;
+                                    });
+                                  },
+                                  child: const Text(' درخواست استعلام جدید',
+                                      style: TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.w600)),
                                 ),
-                                onPressed: () {
-                                  Navigator.of(context).pushNamed(
-                                      MyInquiry.routeName,
-                                      arguments: id);
-                                },
-                                child: const Text('مشاهده استعلام های قبلی ',
+                                const SizedBox(height: 16.0),
+                                const Text('یا',
                                     style: TextStyle(
                                         fontSize: 20.0,
-                                        fontWeight: FontWeight.w600)),
-                              ),
-                            ],
+                                        fontWeight: FontWeight.bold)),
+                                const SizedBox(height: 16.0),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 10, horizontal: 40),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.of(context).pushNamed(
+                                        MyInquiry.routeName,
+                                        arguments: id);
+                                  },
+                                  child: const Text('مشاهده استعلام های قبلی ',
+                                      style: TextStyle(
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.w600)),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -358,7 +360,7 @@ class _InquiryState extends State<Inquiry> {
                   child: Material(
                     elevation: 4,
                     child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.32,
+                      height: MediaQuery.of(context).size.height * 0.39,
                       width: MediaQuery.of(context).size.width * 0.4,
                       child: Column(children: [
                         Container(
@@ -516,7 +518,6 @@ class _InquiryState extends State<Inquiry> {
     }
   }
 
- 
   List<String> getCarNamesByBrand(String? brand) {
     if (brand == null) {
       return [];
