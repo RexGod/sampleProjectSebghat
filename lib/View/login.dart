@@ -69,7 +69,7 @@ class loginuser extends StatelessWidget {
                                         listen: false)
                                     .login(_phoneController.text);
                                 if (canAccess) {
-                                  Navigator.of(context).pushReplacementNamed(
+                                  Navigator.of(context).pushNamed(
                                       verificationUser.routeName,
                                       arguments: _phoneController.text);
                                 }

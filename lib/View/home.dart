@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
   static const routeName = 'home';
   @override
   Widget build(BuildContext context) {
-    final id = ModalRoute.of(context)!.settings.arguments as String;
+    final id = ModalRoute.of(context)!.settings.arguments.toString();
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 53, 28, 53),
       appBar: AppBar(
@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
           const SizedBox(height: 30),
           ElevatedButton(
             onPressed: () {
-              Navigator.of(context).pushNamed(Inquiry.routeName , arguments: id);
+              Navigator.of(context).pushNamed(Inquiry.routeName, arguments: id);
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Color(0xFFF57C00),

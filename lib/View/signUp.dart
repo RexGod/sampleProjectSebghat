@@ -32,7 +32,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       _nameController.clear();
       _passwordController.clear();
       _emailController.clear();
-      Navigator.of(context).pushReplacementNamed(loginuser.routeName);
+      Navigator.of(context).pushNamed(loginuser.routeName);
     }
     ;
   }

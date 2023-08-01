@@ -19,10 +19,9 @@ class Product {
     required this.number,
     required this.price,
   });
-
 }
-class ProviderProduct with ChangeNotifier{
-  
+
+class ProviderProduct with ChangeNotifier {
   List<Product> p1 = [
     Product(
         nameTool: 'سرسیلندر',
@@ -34,11 +33,99 @@ class ProviderProduct with ChangeNotifier{
         state: 'دسته دو'),
     Product(
         nameTool: 'سرسیلندر',
-        count: '1',
+        count: '2',
         compName: 'ایران خودرو',
         brand: 'شاهین',
         number: '18',
         price: '3200000',
+        state: 'نو'),
+    Product(
+        nameTool: 'کاپوت',
+        count: '1',
+        compName: 'ایران خودرو',
+        brand: 'پژو',
+        number: '2',
+        price: '3800000',
+        state: 'نو'),
+    Product(
+        nameTool: 'تسمه تایم',
+        count: '1',
+        compName: 'ایران خودرو',
+        brand: 'سمند',
+        number: '18',
+        price: '3200000',
+        state: 'نو'),
+    Product(
+        nameTool: 'گل گیر',
+        count: '1',
+        compName: 'ایران خودرو',
+        brand: 'سمند',
+        number: '18',
+        price: '3200000',
+        state: 'دست دو'),
+    Product(
+        nameTool: 'سپر',
+        count: '1',
+        compName: 'سایپا',
+        brand: 'پراید',
+        number: '18',
+        price: '3200000',
+        state: 'دست دو'),
+    Product(
+        nameTool: 'سرسیلندر',
+        count: '3',
+        compName: 'سایپا',
+        brand: 'کوییک',
+        number: '18',
+        price: '3200000',
+        state: 'نو'),
+    Product(
+        nameTool: 'چراغ جلو',
+        count: '1',
+        compName: 'ایران خودرو',
+        brand: 'پژو',
+        number: '150',
+        price: '120000',
+        state: 'نو'),
+    Product(
+        nameTool: 'چراغ جلو',
+        count: '2',
+        compName: 'سایپا',
+        brand: 'ساینا',
+        number: '150',
+        price: '120000',
+        state: 'نو'),
+    Product(
+        nameTool: 'کاپوت',
+        count: '2',
+        compName: 'ایران خودرو',
+        brand: 'شاهین',
+        number: '18',
+        price: '3200000',
+        state: 'نو'),
+    Product(
+        nameTool: 'گل گیر',
+        count: '2',
+        compName: 'سایپا',
+        brand: 'پراید',
+        number: '18',
+        price: '3200000',
+        state: 'نو'),
+    Product(
+        nameTool: 'کاپوت',
+        count: '3',
+        compName: 'ایران خودرو',
+        brand: 'وانت بار',
+        number: '18',
+        price: '3200000',
+        state: 'دست دو'),
+    Product(
+        nameTool: 'سرسیلندر',
+        count: '1',
+        compName: 'کرمان موتور',
+        brand: 'فیدلیتی',
+        number: '18',
+        price: '32000000',
         state: 'نو')
   ];
 

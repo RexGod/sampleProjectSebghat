@@ -3,16 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:sample/Model/cars.dart';
 
 class ProviderCar with ChangeNotifier {
-  final List<Car> _carLit = [
-    Car(
-        date: '2023/07/31',
-        userid: '8bb123b0-2d36-11ee-9664-dd2b5f267044',
-        id: 'csacacacacaca',
-        model: 'ام‌وی‌ام 315',
-        brand: 'ام‌وی‌ام',
-        years_of_Produce: '1399',
-        color: 'سفید')
-  ];
+  final List<Car> _carLit = [];
   List<Car> get carList => _carLit;
   String getCurrentDate() {
     DateTime now = DateTime.now();

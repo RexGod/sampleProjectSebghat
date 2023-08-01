@@ -78,4 +78,13 @@ class ProviderUser with ChangeNotifier {
    Map<String, dynamic>? getRecordById(String id) {
     return _userList.firstWhere((record) => record['id'] == id);
   }
+  void logout(String id) {
+    for (var i in _userList) {
+      if (i['id'] == id) {
+        i['tokenVerify'] = null; // Set tokenVerify to null to mark user as logged out
+        break;
+      }
+    }
+    notifyListeners();
+  }
 }

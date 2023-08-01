@@ -24,4 +24,18 @@ class Providertool with ChangeNotifier {
   Tools? searchToolById(String id) {
     return _toolsList.firstWhere((tool) => tool.userId == id);
   }
+
+  String getToolName(String userId) {
+    final tool = _toolsList.firstWhere((tool) => tool.userId == userId);
+    return tool.name;
+  }
+
+  // Getter for the "state" property
+  String getToolState(String userId) {
+    final tool = _toolsList.firstWhere(
+      (tool) => tool.userId == userId,
+    );
+    return tool.state;
+  }
+  
 }

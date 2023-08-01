@@ -122,10 +122,10 @@ class MyInquiry extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Center(
                               child: TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pushNamed(
-                                      Resualt.routName,
-                                      arguments: id);
+                                  onPressed: () {
+                                    Navigator.of(context).pushNamed(
+                                        Resualt.routName,
+                                      arguments: id );
                                 },
                                 child: const Text(
                                   'مشاهده استعلام',

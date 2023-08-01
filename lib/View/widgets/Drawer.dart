@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sample/View/home.dart';
+import 'package:sample/View/login.dart';
 import 'package:sample/ViewModel/userProvider.dart';
 
 class DrawerItems extends StatelessWidget {
@@ -35,6 +37,21 @@ class DrawerItems extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.home,
+                  color: Colors.white), // Set the icon color to white
+              title: const Text(
+                'صفحه اصلی',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              onTap: () {
+                Navigator.of(context)
+                    .pushNamed(HomePage.routeName, arguments: id);
+              },
             ),
             ListTile(
               leading: const Icon(
@@ -118,7 +135,10 @@ class DrawerItems extends StatelessWidget {
                     color: Colors
                         .white), // Increase font weight and set text color to white
               ),
-              onTap: () {},
+              onTap: () {
+                Provider.of<ProviderUser>(context, listen: false).logout(id);
+                Navigator.of(context).popAndPushNamed(loginuser.routeName);
+              },
             ),
           ],
         ),
