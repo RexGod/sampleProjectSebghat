@@ -81,8 +81,7 @@ class _MyNicePageState extends State<MyNicePage> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Add functionality for the button click here
-                // For example, you can access the selected options and text field values
+                
                 print('Selected Option 1: $selectedOption1');
                 print('Selected Option 2: $selectedOption2');
                 print('Selected Option 3: $selectedOption3');

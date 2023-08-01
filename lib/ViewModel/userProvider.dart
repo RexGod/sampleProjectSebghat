@@ -85,7 +85,7 @@ class ProviderUser with ChangeNotifier {
     for (var i in _userList) {
       if (i['id'] == id) {
         i['tokenVerify'] =
-            null; // Set tokenVerify to null to mark user as logged out
+            null; 
         break;
       }
     }

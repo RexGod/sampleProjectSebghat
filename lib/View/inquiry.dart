@@ -516,7 +516,7 @@ class _InquiryState extends State<Inquiry> {
     }
   }
 
-  // Method to get car names based on selected brand
+ 
   List<String> getCarNamesByBrand(String? brand) {
     if (brand == null) {
       return [];

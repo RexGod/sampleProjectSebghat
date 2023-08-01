@@ -40,7 +40,7 @@ class DrawerItems extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.home,
-                  color: Colors.white), // Set the icon color to white
+                  color: Colors.white), 
               title: const Text(
                 'صفحه اصلی',
                 style: TextStyle(
@@ -57,7 +57,7 @@ class DrawerItems extends StatelessWidget {
               leading: const Icon(
                 Icons.person,
                 size: 40,
-                color: Colors.white, // Set the icon color to white
+                color: Colors.white, 
               ),
               title: Text(
                 indexUser!['name'],
@@ -65,75 +65,75 @@ class DrawerItems extends StatelessWidget {
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors
-                        .white), // Increase font weight and set text color to white
+                        .white), 
               ),
               subtitle: Text(indexUser['email'],
                   style: const TextStyle(
-                      color: Colors.white)), // Set subtitle text color to white
+                      color: Colors.white)), 
               onTap: () {},
             ),
             ListTile(
               leading: const Icon(Icons.precision_manufacturing,
-                  color: Colors.white), // Set the icon color to white
+                  color: Colors.white), 
               title: const Text(
                 'تامین کنندگان',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors
-                        .white), // Increase font weight and set text color to white
+                        .white), 
               ),
               onTap: () {},
             ),
             ListTile(
               leading: const Icon(Icons.work,
-                  color: Colors.white), // Set the icon color to white
+                  color: Colors.white), 
               title: const Text(
                 'تولید کنندگان',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors
-                        .white), // Increase font weight and set text color to white
+                        .white), 
               ),
               onTap: () {},
             ),
             ListTile(
               leading: const Icon(Icons.engineering,
-                  color: Colors.white), // Set the icon color to white
+                  color: Colors.white), 
               title: const Text(
                 'متخصصین فنی',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors
-                        .white), // Increase font weight and set text color to white
+                        .white), 
               ),
               onTap: () {},
             ),
             ListTile(
               leading: const Icon(Icons.edit,
-                  color: Colors.white), // Set the icon color to white
+                  color: Colors.white), 
               title: const Text(
                 'ویرایش پروفایل',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors
-                        .white), // Increase font weight and set text color to white
+                        .white), 
               ),
               onTap: () {},
             ),
             ListTile(
               leading: const Icon(Icons.logout,
-                  color: Colors.white), // Set the icon color to white
+                  color: Colors.white), 
               title: const Text(
                 'خروج',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors
-                        .white), // Increase font weight and set text color to white
+                        .white), 
               ),
               onTap: () {
                 Provider.of<ProviderUser>(context, listen: false).logout(id);
