@@ -212,6 +212,7 @@ class _InquiryState extends State<Inquiry> {
                   const Text('مشخصات خودرو'),
                   const SizedBox(height: 20),
                   DropdownButton<String>(
+                    hint: const Text('برند ماشین را انتخاب کنید'),
                     value: selectedBrand,
                     onChanged: (value) => setState(() {
                       selectedBrand = value;
@@ -221,6 +222,7 @@ class _InquiryState extends State<Inquiry> {
                   ),
                   const SizedBox(height: 20),
                   DropdownButton<String>(
+                    hint: const Text('مدل ماشین را انتخاب کنید'),
                     value: selectedCar,
                     onChanged: (value) => setState(() {
                       selectedCar = value;
@@ -231,6 +233,7 @@ class _InquiryState extends State<Inquiry> {
                   ),
                   const SizedBox(height: 20),
                   DropdownButton<String>(
+                    hint: const Text('رنگ ماشین را انتخاب کنید'),
                     value: selectedColor,
                     onChanged: (value) => setState(() {
                       selectedColor = value;

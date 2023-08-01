@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
         'inquiry': (context) => Inquiry(),
         'myinquiry': (context) => MyInquiry(),
         'resualt': (context) => Resualt(),
+        'signup': (context) => SignUpScreen(),
       }),
     );
   }

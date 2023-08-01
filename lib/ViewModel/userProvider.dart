@@ -35,8 +35,9 @@ class ProviderUser with ChangeNotifier {
   }
 
   int generateRandomNumberInRange() {
-    Random random = Random();
-    int code = random.nextInt(9000) + 1000;
+    /* Random random = Random();
+    int code = random.nextInt(9000) + 1000; */
+    int code = 1000;
     print(code);
     return code;
   }
@@ -75,13 +76,16 @@ class ProviderUser with ChangeNotifier {
     }
     return id;
   }
-   Map<String, dynamic>? getRecordById(String id) {
+
+  Map<String, dynamic>? getRecordById(String id) {
     return _userList.firstWhere((record) => record['id'] == id);
   }
+
   void logout(String id) {
     for (var i in _userList) {
       if (i['id'] == id) {
-        i['tokenVerify'] = null; // Set tokenVerify to null to mark user as logged out
+        i['tokenVerify'] =
+            null; // Set tokenVerify to null to mark user as logged out
         break;
       }
     }

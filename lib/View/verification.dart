@@ -15,7 +15,8 @@ class verificationUser extends StatelessWidget {
     final id = Provider.of<ProviderUser>(context, listen: false).findid(phone);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Verification'),
+        title: Text('تاییده حساب'),
+        backgroundColor: Color(0xFFF57C00),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -74,6 +75,7 @@ class verificationUser extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
+                              backgroundColor: Color(0xFFF57C00),
                             ),
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
